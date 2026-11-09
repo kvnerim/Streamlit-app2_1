@@ -2,7 +2,12 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-data = pd.read_excel("ibm_hr_attrition.xlsx")
+@st.cache_data
+def load_data:
+    df = pd.read_csv("ibm_hr_attrition.xlsx")
+    return df 
+
+data = load_data
 
 st.set_page_config(
     page_title="Dashboard des Ventes",
